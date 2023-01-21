@@ -1,8 +1,9 @@
 import './App.css';
+import Frame from './Frame';
 
 const App = () => {
   return (
-<div>Hello! </div>
+<Frame />
   );
 }
 
