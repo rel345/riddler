@@ -3,7 +3,10 @@ import Frame from './Frame';
 
 const App = () => {
   return (
-<Frame />
+    <div>
+<Frame title={"Upload puzzle"} />
+<Frame title={"Upload puzzle piece"} />
+</div>
   );
 }
 
