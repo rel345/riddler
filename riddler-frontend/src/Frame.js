@@ -1,27 +1,28 @@
-import React, { useContext, useState } from "react"
-import { Box, Button, IconButton, Stack, } from '@mui/material'
-import PhotoCamera from '@mui/icons-material/PhotoCamera'
-import Image from 'mui-image'
+import React, { useContext, useState } from 'react';
+import { Box, Button, IconButton, Stack } from '@mui/material';
+import PhotoCamera from '@mui/icons-material/PhotoCamera';
+import Image from 'mui-image';
 
-const Frame = () => {
+const Frame = ({ title }) => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   return (
-    <div>
-      <h1>Upload Your Puzzle</h1>
+    <div class='frame'>
+      <h1>{title}</h1>
       {selectedImage && (
         <div>
-        <img alt="not fount" width={"750px"} height={"550px"} src={URL.createObjectURL(selectedImage)} />
-        <br />
+          <img class='input-img' alt='not found' src={URL.createObjectURL(selectedImage)} />
+          <br />
         </div>
       )}
       <br />
-     
-      <br /> 
+
+      <br />
 
       <input
-        type="file"
-        name="myImage"
+        type='file'
+        name='myImage'
+        disabled={true}
         onChange={(event) => {
           console.log(event.target.files[0]);
           setSelectedImage(event.target.files[0]);
@@ -31,4 +32,4 @@ const Frame = () => {
   );
 };
 
-export default Frame
+export default Frame;
