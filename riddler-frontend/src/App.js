@@ -1,15 +1,12 @@
 import './App.css';
-import Frame from './Frame';
+import { AppProvider } from './Context';
+import Main from './Main';
 
 const App = () => {
   return (
-    <>
-      <h1>Riddler</h1>
-      <div class='container'>
-        <Frame title="Upload puzzle"/>
-        <Frame title="Upload piece"/>
-      </div>
-    </>
+    <AppProvider>
+      <Main />
+    </AppProvider>
   );
 };
 

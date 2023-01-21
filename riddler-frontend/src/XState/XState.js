@@ -1,10 +1,12 @@
-import { createMachine, assign } from "xstate"
+import { createMachine, assign } from 'xstate';
 
 const promiseMachine = createMachine({
-    id: 'puzzle',
-    initial: 'idle',
-    states: {
-        idle: {},
-        selected: {}
-    }
+  id: 'puzzle',
+  initial: 'idle',
+  states: {
+    idle: {},
+    selected: {},
+  },
 });
+
+export default promiseMachine;

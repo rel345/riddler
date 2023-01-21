@@ -2,16 +2,20 @@ import React, { useContext, useState } from 'react';
 import { Box, Button, IconButton, Stack } from '@mui/material';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import Image from 'mui-image';
+import { useMachine } from '@xstate/react';
+import promiseMachine from './XState/XState.js';
 
-const Frame = ({ title }) => {
-  const [selectedImage, setSelectedImage] = useState(null);
+const Frame = ({ title, image, setImage, isPiece }) => {
+  const [current, send] = useMachine(promiseMachine);
+
+  console.log(current);
 
   return (
     <div class='frame'>
       <h1>{title}</h1>
-      {selectedImage && (
+      {image && (
         <div>
-          <img class='input-img' alt='not found' src={URL.createObjectURL(selectedImage)} />
+          <img class='input-img' alt='not found' src={URL.createObjectURL(image)} />
           <br />
         </div>
       )}
@@ -22,10 +26,13 @@ const Frame = ({ title }) => {
       <input
         type='file'
         name='myImage'
-        disabled={true}
+        disabled={current.matches('idle') ? false : true}
         onChange={(event) => {
           console.log(event.target.files[0]);
-          setSelectedImage(event.target.files[0]);
+          setImage(event.target.files[0]);
+          if (isPiece) {
+            console.log('uploaded the piece');
+          }
         }}
       />
     </div>
