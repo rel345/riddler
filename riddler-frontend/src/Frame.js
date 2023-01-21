@@ -1,7 +1,4 @@
 import React, { useContext, useState } from 'react';
-import { Box, Button, IconButton, Stack } from '@mui/material';
-import PhotoCamera from '@mui/icons-material/PhotoCamera';
-import Image from 'mui-image';
 import { useMachine } from '@xstate/react';
 import promiseMachine from './XState/XState.js';
 
